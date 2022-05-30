@@ -1,13 +1,13 @@
 # Large-scale contrastive pronoun test set for EN-to-FR
 
-This repository contains a large-scale contrastive test set for the evaluation of the machine translation (MT) of anaphoric pronouns 'it' and 'they' from English to French, created from OpenSubtitles2018 [(Lison et al., 2018)](https://www.aclweb.org/anthology/L18-1275/). It uses the dataset creation and evaluation protocols of [ContraPro datasets](https://github.com/ZurichNLP/ContraPro) [(Müller et al., 2018)](https://www.aclweb.org/anthology/W18-6307/), adapted to English-to-French, with some slight modifications to the dataset creation process.
+This repository contains a large-scale contrastive test set for the evaluation of the machine translation (MT) of anaphoric pronouns 'it' and 'they' from English to French, created from OpenSubtitles2018 [(Lison et al., 2018)](https://aclanthology.org/L18-1275/). It uses the dataset creation and evaluation protocols of [ContraPro datasets](https://github.com/ZurichNLP/ContraPro) [(Müller et al., 2018)](https://aclanthology.org/W18-6307/), adapted to English-to-French, with some slight modifications to the dataset creation process.
 
 
 ## Citation
 
 If use you these test sets, please cite the following paper:
 
-António Lopes, M. Amin Farajian, Rachel Bawden, Michael Zhang and André T. Martins. 2020. [Document-level Neural MT: A Systematic Comparison](https://www.aclweb.org/anthology/2020.eamt-1.24/). In *Proceedings of the 22nd Annual Conference of the European Association for Machine Translation*. Lisbon, Portugal. Pages 225–234.
+António Lopes, M. Amin Farajian, Rachel Bawden, Michael Zhang and André T. Martins. 2020. [Document-level Neural MT: A Systematic Comparison](https://aclanthology.org/2020.eamt-1.24/). In *Proceedings of the 22nd Annual Conference of the European Association for Machine Translation*. Lisbon, Portugal. Pages 225–234.
 
 ```
 @inproceedings{lopes-document-2020,
@@ -16,7 +16,7 @@ António Lopes, M. Amin Farajian, Rachel Bawden, Michael Zhang and André T. Mar
     year={2020},
     booktitle={Proceedings of the 22nd Annual Conference of the European Association for Machine Translation},
     address={Lisbon, Portugal}
-    url={https://www.aclweb.org/anthology/2020.eamt-1.24/},
+    url={https://aclanthology.org/2020.eamt-1.24/},
     pages={225–234}
 }
 ```
@@ -25,7 +25,7 @@ António Lopes, M. Amin Farajian, Rachel Bawden, Michael Zhang and André T. Mar
 
 Contrastive test sets are used to test MT models on their capacity to rank a correct translation higher than an incorrect one. The test sets are therefore made up of pairs of translations, one correct and one incorrect (contrastive).
 
-These test sets are designed to evaluate anaphoric pronoun translation from English to French. This concerns selected occurrences of the English pronouns 'it' and 'they' that correspond to the translations 'il', 'elle', 'ils' or 'elles' in the corresponding French translation.
+These test sets are designed to evaluate anaphoric pronoun translation from English to French. This concerns selected occurrences of the English pronouns 'it' and 'they' that correspond to the translations 'il', 'elle', 'ils', or 'elles' in the corresponding French translation.
 
 - it (singular) -> 'il' (masculine) or 'elle' (feminine)
 - they (plural) -> 'ils' (masculine) or 'elles' (feminine)
@@ -83,10 +83,10 @@ N.B. use `--maximize` if higher scores are better and exclude it if lower scores
 
 We follow a similar process to the original ContraPro dataset process, with minor modifications:
 
-1.  Instances of 'it' and 'they' and their antecedents are detected using [https://github.com/huggingface/neuralcoref](NeuralCoref).  Unlike Müller et al (2018), we only run English coreference dueto a lack of an adequate French tool.
-2.  Pronouns  are  aligned  to  their  French  pro-noun translations (il,elle,ilsandelles) usingFastAlign (Dyer et al., 2013)
-3. Examples  are  filtered  to  only  include  sub-ject pronouns (using Spacy5) with a nominalantecedent, aligned to a nominal French an-tecedent matching the French pronoun’s gen-der.  We remove examples whose antecedentis  more  than  five  sentences  away  to  avoidcases of imprecise coreference resolution.
-4. Contrastive translations are created by inverting the French pronoun gender. As in (Müller et al.,  2018),  we also modify the gender of words that in with the pronoun (e.g. adjectives and some past participles) using the Lefff lexicon (Sagot, 2010)).
+1. Instances of 'it' and 'they' and their antecedents are detected using [https://github.com/huggingface/neuralcoref](NeuralCoref). Unlike Müller et al (2018), we only run English coreference due to a lack of an adequate French tool.
+2. Pronouns are aligned to their French pronoun translations (il, elle, ils, and elles) using FastAlign (Dyer et al., 2013)
+3. Examples are filtered to only include subject pronouns (using Spacy5) with a nominal antecedent, aligned to a nominal French antecedent matching the French pronoun’s gender. We remove examples whose antecedent is more than five sentences away to avoid cases of imprecise coreference resolution.
+4. Contrastive translations are created by inverting the French pronoun gender. As in Müller et al. (2018), we also modify the gender of words that in with the pronoun (e.g., adjectives and some past participles) using the Lefff lexicon (Sagot, 2010)).
 
 
 ## Some statistics
